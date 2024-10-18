@@ -8,7 +8,7 @@
 
         public int FormaPagamentoId { get; set; }
 
-        public string ValorPagamento { get; set; } = string.Empty;
+        public double ValorPagamento { get; set; }
 
         public DateTime DataPagamento { get; set; }
 

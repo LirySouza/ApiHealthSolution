@@ -11,7 +11,7 @@ namespace Api.Data
             builder.HasKey(x => x.PagamentoId);
             builder.Property(x => x.ConsultaId).IsRequired();
             builder.Property(x => x.FormaPagamentoId).IsRequired();
-            builder.Property(x => x.ValorPagamento).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.ValorPagamento);
             builder.Property(x => x.DataPagamento).IsRequired();
             builder.Property(x => x.ObsPagamento).IsRequired().HasMaxLength(255);
         }
