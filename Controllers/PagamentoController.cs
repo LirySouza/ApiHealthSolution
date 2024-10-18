@@ -38,6 +38,21 @@ namespace Api.Controllers
             return Ok(Pagamento);
         }
 
+        [HttpPut("UpdatePagamento/{id:int}")]
+        public async Task<ActionResult<PagamentoModel>> UpdatePagamento(int id, [FromBody] PagamentoModel pagamentoModel)
+        {
+            pagamentoModel.PagamentoId = id;
+            PagamentoModel pagamento = await _pagamentoRepositorio.UpdatePagamento(pagamentoModel, id);
+            return Ok(pagamento);
+        }
+
+        [HttpDelete("DeletePagamento/{id:int}")]
+        public async Task<ActionResult<PagamentoModel>> DeletePagamento(int id)
+        {
+            bool deleted = await _pagamentoRepositorio.DeletePagamento(id);
+            return Ok(deleted);
+        }
+
     }
 }
 

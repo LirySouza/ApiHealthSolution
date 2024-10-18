@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Api.Data
 {
-    public class PagamentolMap : IEntityTypeConfiguration<PagamentoModel>
+    public class PagamentoMap : IEntityTypeConfiguration<PagamentoModel>
     {
         public void Configure(EntityTypeBuilder<PagamentoModel> builder)
         {
