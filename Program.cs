@@ -17,6 +17,13 @@ builder.Services.AddEntityFrameworkSqlServer()
     );
 
 builder.Services.AddScoped <IUsersRepositorio, UsersRepositorio>();
+builder.Services.AddScoped<ITipoProfissionalRepositorio, TipoProfissionalRepositorio>();
+builder.Services.AddScoped<ITipoSexoRepositorio, TipoSexoRepositorio>();
+builder.Services.AddScoped<IProfissionalRepositorio, ProfissionalRepositorio>();
+builder.Services.AddScoped<IPagamentoRepositorio, PagamentoRepositorio>();
+builder.Services.AddScoped<IPacienteRepositorio, PacienteRepositorio>();
+builder.Services.AddScoped<IFormaPagamentoRepositorio, FormaPagamentoRepositorio>();
+builder.Services.AddScoped<IConsultaRepositorio, ConsultaRepositorio>();
 
 builder.Services.AddCors(options =>
 {
