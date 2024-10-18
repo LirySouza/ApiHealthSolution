@@ -38,6 +38,20 @@ namespace Api.Controllers
             ProfissionalModel Profissional = await _profissionalRepositorio.InsertProfissional(ProfissionalModel);
             return Ok(Profissional);
         }
+        [HttpPut("UpdateProfissional/{id:int}")]
+        public async Task<ActionResult<ProfissionalModel>> UpdateProfissional(int id, [FromBody] ProfissionalModel profissionalModel)
+        {
+            profissionalModel.ProfissionalId = id;
+            ProfissionalModel profissional = await _profissionalRepositorio.UpdateProfissional(profissionalModel, id);
+            return Ok(profissional);
+        }
+
+        [HttpDelete("DeleteProfissional/{id:int}")]
+        public async Task<ActionResult<ProfissionalModel>> DeleteProfissional(int id)
+        {
+            bool deleted = await _profissionalRepositorio.DeleteProfissional(id);
+            return Ok(deleted);
+        }
 
     }
 }

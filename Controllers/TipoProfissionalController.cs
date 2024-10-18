@@ -1,4 +1,5 @@
 ﻿using Api.Models;
+using Api.Repositorios;
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,22 @@ namespace Api.Controllers
             TipoProfissionalModel TipoProfissional = await _tipoprofissionalRepositorio.InsertTipoProfissional(TipoProfissionalModel);
             return Ok(TipoProfissional);
         }
+
+        [HttpPut("UpdateTipoProfissional/{id:int}")]
+        public async Task<ActionResult<TipoProfissionalModel>> UpdateTipoProfissional(int id, [FromBody] TipoProfissionalModel tipoprofissionalModel)
+        {
+            tipoprofissionalModel.TipoProfissionalId = id;
+            TipoProfissionalModel tipoprofissional = await _tipoprofissionalRepositorio.UpdateTipoProfissional(tipoprofissionalModel, id);
+            return Ok(tipoprofissional);
+        }
+
+        [HttpDelete("DeleteTipoProfissional/{id:int}")]
+        public async Task<ActionResult<TipoProfissionalModel>> DeleteTipoProfissional(int id)
+        {
+            bool deleted = await _tipoprofissionalRepositorio.DeleteTipoProfissional(id);
+            return Ok(deleted);
+        }
+
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Api.Models;
+using Api.Repositorios;
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,21 @@ namespace Api.Controllers
         {
             TipoSexoModel tiposexo = await _tiposexoRepositorio.InsertTipoSexo(tiposexoModel);
             return Ok(tiposexo);
+        }
+
+        [HttpPut("UpdateTipoSexo/{id:int}")]
+        public async Task<ActionResult<TipoSexoModel>> UpdateTipoSexo(int id, [FromBody] TipoSexoModel tiposexoModel)
+        {
+            tiposexoModel.TipoSexoId = id;
+            TipoSexoModel tiposexo = await _tiposexoRepositorio.UpdateTipoSexo(tiposexoModel, id);
+            return Ok(tiposexo);
+        }
+
+        [HttpDelete("DeleteTipoSexo/{id:int}")]
+        public async Task<ActionResult<TipoSexoModel>> DeleteTipoSexo(int id)
+        {
+            bool deleted = await _tiposexoRepositorio.DeleteTipoSexo(id);
+            return Ok(deleted);
         }
 
     }

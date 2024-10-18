@@ -1,4 +1,5 @@
 ﻿using Api.Models;
+using Api.Repositorios;
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,21 @@ namespace Api.Controllers
         {
             UsersModel user = await _usersRepositorio.InsertUser(userModel);
             return Ok(user);
+        }
+
+        [HttpPut("UpdateUsers/{id:int}")]
+        public async Task<ActionResult<UsersModel>> UpdateTipoSexo(int id, [FromBody] UsersModel usersModel)
+        {
+            usersModel.UserId = id;
+            UsersModel users = await _usersRepositorio.UpdateUser(usersModel, id);
+            return Ok(users);
+        }
+
+        [HttpDelete("DeleteUsers/{id:int}")]
+        public async Task<ActionResult<UsersModel>> DeleteUsers(int id)
+        {
+            bool deleted = await _usersRepositorio.DeleteUser(id);
+            return Ok(deleted);
         }
 
     }

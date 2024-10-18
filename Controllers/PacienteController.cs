@@ -38,7 +38,20 @@ namespace Api.Controllers
             PacienteModel Paciente = await _pacienteRepositorio.InsertPaciente(PacienteModel);
             return Ok(Paciente);
         }
+        [HttpPut("UpdatePaciente/{id:int}")]
+        public async Task<ActionResult<PacienteModel>> UpdatePaciente(int id, [FromBody] PacienteModel pacienteModel)
+        {
+            pacienteModel.PacienteId = id;
+            PacienteModel paciente = await _pacienteRepositorio.UpdatePaciente(pacienteModel, id);
+            return Ok(paciente);
+        }
 
+        [HttpDelete("DeletePaciente/{id:int}")]
+        public async Task<ActionResult<PacienteModel>> DeletePaciente(int id)
+        {
+            bool deleted = await _pacienteRepositorio.DeletePaciente(id);
+            return Ok(deleted);
+        }
 
     }
 }
