@@ -40,8 +40,7 @@ namespace Api.Repositorios
             }
             else
             {
-                formapagamentos.FormaPagamentoId = formapagamentos.FormaPagamentoId;
-                formapagamentos.NomeFormaPagamento = formapagamentos.NomeFormaPagamento;
+                formapagamentos.NomeFormaPagamento = formapagamento.NomeFormaPagamento;
                 _dbContext.FormaPagamento.Update(formapagamentos);
                 await _dbContext.SaveChangesAsync();
             }

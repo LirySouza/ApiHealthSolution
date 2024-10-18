@@ -41,13 +41,12 @@ namespace Api.Repositorios
             }
             else
             {
-                pagamentos.PagamentoId = pagamentos.PagamentoId;
-                pagamentos.ConsultaId = pagamentos.ConsultaId;
-                pagamentos.FormaPagamentoId = pagamentos.FormaPagamentoId;
-                pagamentos.ValorPagamento = pagamentos.ValorPagamento;
-                pagamentos.DataPagamento = pagamentos.DataPagamento;
-                pagamentos.ObsPagamento = pagamentos.ObsPagamento;
-                _dbContext.Pagamento.Update(pagamentos);
+                pagamentos.ConsultaId = pagamento.ConsultaId;
+                pagamentos.FormaPagamentoId = pagamento.FormaPagamentoId;
+                pagamentos.ValorPagamento = pagamento.ValorPagamento;
+                pagamentos.DataPagamento = pagamento.DataPagamento;
+                pagamentos.ObsPagamento = pagamento.ObsPagamento;
+                _dbContext.Pagamento.Update(pagamento);
                 await _dbContext.SaveChangesAsync();
             }
             return pagamento;

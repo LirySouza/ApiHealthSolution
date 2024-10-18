@@ -41,7 +41,7 @@ namespace Api.Controllers
         [HttpPut("UpdateConsulta/{id:int}")]
         public async Task<ActionResult<ConsultaModel>> UpdateConsulta(int id, [FromBody] ConsultaModel consultaModel)
         {
-            consultaModel.ConsultaId = id;
+            //consultaModel.ConsultaId = id;
             ConsultaModel consulta = await _consultaRepositorio.UpdateConsulta(consultaModel, id);
             return Ok(consulta);
         }

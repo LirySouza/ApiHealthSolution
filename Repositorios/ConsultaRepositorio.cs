@@ -40,14 +40,13 @@ namespace Api.Repositorios
                 throw new Exception("Não encontrado.");
             }
             else
-            {
-                consultas.ConsultaId = consultas.ConsultaId;
-                consultas.NomeConsulta = consultas.NomeConsulta;
-                consultas.PacienteId = consultas.PacienteId;
-                consultas.ObsConsulta = consultas.ObsConsulta;
-                consultas.ProfissionalId = consultas.ProfissionalId;
-                consultas.DataConsulta = consultas.DataConsulta;
-                _dbContext.Consulta.Update(consultas);
+            {            
+                consultas.NomeConsulta = consulta.NomeConsulta;
+                consultas.PacienteId = consulta.PacienteId;
+                consultas.ObsConsulta = consulta.ObsConsulta;
+                consultas.ProfissionalId = consulta.ProfissionalId;
+                consultas.DataConsulta = consulta.DataConsulta;
+                _dbContext.Consulta.Update(consulta);
                 await _dbContext.SaveChangesAsync();
             }
             return consultas;
