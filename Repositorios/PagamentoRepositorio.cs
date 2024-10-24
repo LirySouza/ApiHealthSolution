@@ -32,20 +32,20 @@ namespace Api.Repositorios
             return Pagamento;
         }
 
-        public async Task<PagamentoModel> UpdatePagamento(PagamentoModel pagamento, int id)
+        public async Task<PagamentoModel> UpdatePagamento(PagamentoModel requisicao, int id)
         {
-            PagamentoModel pagamentos = await GetById(id);
-            if (pagamentos == null)
+            PagamentoModel pagamento = await GetById(id);
+            if (pagamento == null)
             {
                 throw new Exception("Não encontrado.");
             }
             else
             {
-                pagamentos.ConsultaId = pagamento.ConsultaId;
-                pagamentos.FormaPagamentoId = pagamento.FormaPagamentoId;
-                pagamentos.ValorPagamento = pagamento.ValorPagamento;
-                pagamentos.DataPagamento = pagamento.DataPagamento;
-                pagamentos.ObsPagamento = pagamento.ObsPagamento;
+                pagamento.ConsultaId = requisicao.ConsultaId;
+                pagamento.FormaPagamentoId = requisicao.FormaPagamentoId;
+                pagamento.ValorPagamento = requisicao.ValorPagamento;
+                pagamento.DataPagamento = requisicao.DataPagamento;
+                pagamento.ObsPagamento = requisicao.ObsPagamento;
                 _dbContext.Pagamento.Update(pagamento);
                 await _dbContext.SaveChangesAsync();
             }

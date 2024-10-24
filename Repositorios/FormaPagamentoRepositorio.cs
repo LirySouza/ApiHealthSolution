@@ -31,20 +31,20 @@ namespace Api.Repositorios
             return FormaPagamento;
         }
 
-        public async Task<FormaPagamentoModel> UpdateFormaPagamento(FormaPagamentoModel formapagamento, int id)
+        public async Task<FormaPagamentoModel> UpdateFormaPagamento(FormaPagamentoModel requisicao, int id)
         {
-            FormaPagamentoModel formapagamentos = await GetById(id);
-            if (formapagamentos == null)
+            FormaPagamentoModel formapagamento = await GetById(id);
+            if (formapagamento == null)
             {
                 throw new Exception("Não encontrado.");
             }
             else
             {
-                formapagamentos.NomeFormaPagamento = formapagamento.NomeFormaPagamento;
-                _dbContext.FormaPagamento.Update(formapagamentos);
+                formapagamento.NomeFormaPagamento = requisicao.NomeFormaPagamento;
+                _dbContext.FormaPagamento.Update(formapagamento);
                 await _dbContext.SaveChangesAsync();
             }
-            return formapagamentos;
+            return formapagamento;
 
         }
 

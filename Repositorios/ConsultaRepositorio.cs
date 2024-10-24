@@ -32,24 +32,24 @@ namespace Api.Repositorios
             return Consulta;
         }
 
-        public async Task<ConsultaModel> UpdateConsulta(ConsultaModel consulta, int id)
+        public async Task<ConsultaModel> UpdateConsulta(ConsultaModel requisicao, int id)
         {
-            ConsultaModel consultas = await GetById(id);
-            if (consultas == null)
+            ConsultaModel consulta = await GetById(id);
+            if (consulta == null)
             {
                 throw new Exception("Não encontrado.");
             }
             else
             {            
-                consultas.NomeConsulta = consulta.NomeConsulta;
-                consultas.PacienteId = consulta.PacienteId;
-                consultas.ObsConsulta = consulta.ObsConsulta;
-                consultas.ProfissionalId = consulta.ProfissionalId;
-                consultas.DataConsulta = consulta.DataConsulta;
+                consulta.NomeConsulta = requisicao.NomeConsulta;
+                consulta.PacienteId = requisicao.PacienteId;
+                consulta.ObsConsulta = requisicao.ObsConsulta;
+                consulta.ProfissionalId = requisicao.ProfissionalId;
+                consulta.DataConsulta = requisicao.DataConsulta;
                 _dbContext.Consulta.Update(consulta);
                 await _dbContext.SaveChangesAsync();
             }
-            return consultas;
+            return consulta;
 
         }
 

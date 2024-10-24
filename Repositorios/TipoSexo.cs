@@ -31,16 +31,16 @@ namespace Api.Repositorios
             return TipoSexo;
         }
 
-        public async Task<TipoSexoModel> UpdateTipoSexo(TipoSexoModel tiposexo, int id)
+        public async Task<TipoSexoModel> UpdateTipoSexo(TipoSexoModel requisicao, int id)
         {
-            TipoSexoModel tiposexos = await GetById(id);
-            if (tiposexos == null)
+            TipoSexoModel tiposexo = await GetById(id);
+            if (tiposexo == null)
             {
                 throw new Exception("Não encontrado.");
             }
             else
             {
-                tiposexos.NomeTipoSexo = tiposexo.NomeTipoSexo;
+                tiposexo.NomeTipoSexo = requisicao.NomeTipoSexo;
                 _dbContext.TipoSexo.Update(tiposexo);
                 await _dbContext.SaveChangesAsync();
             }

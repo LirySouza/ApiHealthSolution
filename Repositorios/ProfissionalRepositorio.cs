@@ -31,20 +31,25 @@ namespace Api.Repositorios
             return Profissional;
         }
 
-        public async Task<ProfissionalModel> UpdateProfissional(ProfissionalModel profissional, int id)
+        public async Task<ProfissionalModel> UpdateProfissional(ProfissionalModel requisicao, int id)
         {
-            ProfissionalModel profissionais = await GetById(id);
+            ProfissionalModel profissional = await GetById(id);
             if (profissional == null)
             {
                 throw new Exception("Não encontrado.");
             }
             else
             {
-                profissionais.NomeProfissional = profissional.NomeProfissional;
+                profissional.NomeProfissional = requisicao.NomeProfissional;
+                profissional.DataNascimento = requisicao.DataNascimento;
+                profissional.TipoSexoId = requisicao.TipoSexoId;
+                profissional.CpfProfissional = requisicao.CpfProfissional;
+                profissional.EnderecoProfissional = requisicao.EnderecoProfissional;
+                profissional.TipoProfissionalId = requisicao.TipoProfissionalId;
                 _dbContext.Profissional.Update(profissional);
                 await _dbContext.SaveChangesAsync();
             }
-            return profissionais;
+            return profissional;
 
         }
 

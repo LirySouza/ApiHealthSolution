@@ -31,20 +31,25 @@ namespace Api.Repositorios
             return Paciente;
         }
 
-        public async Task<PacienteModel> UpdatePaciente(PacienteModel paciente, int id)
+        public async Task<PacienteModel> UpdatePaciente(PacienteModel requisicao, int id)
         {
-            PacienteModel pacientes = await GetById(id);
+            PacienteModel paciente = await GetById(id);
             if (paciente == null)
             {
                 throw new Exception("Não encontrado.");
             }
             else
             {
-                pacientes.NomePaciente = paciente.NomePaciente;
+                paciente.NomePaciente = requisicao.NomePaciente;
+                paciente.DataNascimento = requisicao.DataNascimento;
+                paciente.TipoSexoId = requisicao.TipoSexoId;
+                paciente.CpfPaciente = requisicao.CpfPaciente;
+                paciente.EnderecoPaciente = requisicao.EnderecoPaciente;
+                paciente.TelefonePaciente = requisicao.TelefonePaciente;
                 _dbContext.Paciente.Update(paciente);
                 await _dbContext.SaveChangesAsync();
             }
-            return pacientes;
+            return paciente;
 
         }
 
