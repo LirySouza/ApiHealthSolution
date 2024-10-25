@@ -41,7 +41,7 @@ namespace Api.Repositorios
             }
             else
             {
-                usuario.UsuarioFoto = requisicao.UsuarioFoto;
+                usuario.FotoUsuario = requisicao.FotoUsuario;
                 usuario.UsuarioNome = requisicao.UsuarioNome;
                 usuario.UsuarioCpf = requisicao.UsuarioCpf;
                 usuario.UsuarioEndereco = requisicao.UsuarioEndereco;

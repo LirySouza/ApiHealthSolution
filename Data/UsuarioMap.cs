@@ -9,7 +9,7 @@ namespace Api.Data
         public void Configure(EntityTypeBuilder<UsuarioModel> builder)
         {
             builder.HasKey(x => x.UsuarioId);
-            builder.Property(x=> x.UsuarioFoto).IsRequired().HasMaxLength(255);
+            builder.Property(x=> x.FotoUsuario).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioNome).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioCpf).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioEndereco).IsRequired().HasMaxLength(255);

@@ -4,7 +4,7 @@
     {
         public int UsuarioId { get; set; }
 
-        public string UsuarioFoto { get; set; } = string.Empty;
+        public string FotoUsuario { get; set; } = string.Empty;
 
         public string UsuarioNome { get; set; } = string.Empty;
 
