@@ -54,5 +54,21 @@ namespace Api.Controllers
             return Ok(deleted);
         }
 
+        [HttpPost("LoginUsuario")]
+        public async Task<ActionResult<UsuarioModel>> LoginUsuario([FromBody] UsuarioModel usuarioModel)
+        {
+            var email = usuarioModel.UsuarioEmail;
+            var senha = usuarioModel.UsuarioSenha;
+            UsuarioModel Usuario = await _usuarioRepositorio.LoginUsuario(email, senha);
+
+            if (Usuario == null){
+                return  Problem("Usuário não encontrado");
+                    
+             }
+
+            else
+                return Ok(Usuario);
+        }
+
     }
 }
