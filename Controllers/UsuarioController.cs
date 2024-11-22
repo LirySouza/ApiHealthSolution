@@ -33,7 +33,7 @@ namespace Api.Controllers
         }
 
         [HttpPost("CreateUsuario")]
-        public async Task<ActionResult<UsuarioModel>> InsertUsuario([FromBody]UsuarioModel usuarioModel)
+        public async Task<ActionResult<UsuarioModel>> InsertUsuario([FromBody] UsuarioModel usuarioModel)
         {
             UsuarioModel Usuario = await _usuarioRepositorio.InsertUsuario(usuarioModel);
             return Ok(Usuario);
@@ -57,18 +57,18 @@ namespace Api.Controllers
         [HttpPost("LoginUsuario")]
         public async Task<ActionResult<UsuarioModel>> LoginUsuario([FromBody] UsuarioModel usuarioModel)
         {
-            var email = usuarioModel.UsuarioEmail;
-            var senha = usuarioModel.UsuarioSenha;
-            UsuarioModel Usuario = await _usuarioRepositorio.LoginUsuario(email, senha);
+            UsuarioModel Usuario = await _usuarioRepositorio.LoginUsuario(usuarioModel.UsuarioEmail, usuarioModel.UsuarioSenha);
 
-            if (Usuario == null){
-                return  Problem("Usuário não encontrado");
-                    
-             }
+            if (Usuario == null)
+            {
+                return Problem("Usuário não encontrado");
 
+            }
             else
+            {
                 return Ok(Usuario);
-        }
+            }
 
+        }
     }
 }

@@ -13,7 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddEntityFrameworkSqlServer()
     .AddDbContext<Contexto>(
-  options => options.UseSqlServer("Data Source=SB-1490655\\SQLSENAI;Initial Catalog = HealthSolutions-MVC;Integrated Security = True;TrustServerCertificate = True"));
+  options => options.UseSqlServer(builder.Configuration.GetConnectionString("Database"))
+  );
 
 
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
