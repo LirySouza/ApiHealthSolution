@@ -41,7 +41,6 @@ namespace Api.Repositorios
             }
             else
             {            
-                consulta.NomeConsulta = requisicao.NomeConsulta;
                 consulta.PacienteId = requisicao.PacienteId;
                 consulta.ObsConsulta = requisicao.ObsConsulta;
                 consulta.ProfissionalId = requisicao.ProfissionalId;
