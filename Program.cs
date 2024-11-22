@@ -25,6 +25,8 @@ builder.Services.AddScoped<IPagamentoRepositorio, PagamentoRepositorio>();
 builder.Services.AddScoped<IPacienteRepositorio, PacienteRepositorio>();
 builder.Services.AddScoped<IFormaPagamentoRepositorio, FormaPagamentoRepositorio>();
 builder.Services.AddScoped<IConsultaRepositorio, ConsultaRepositorio>();
+builder.Services.AddScoped<ITipoConsultaRepositorio, TipoConsultaRepositorio>();
+
 
 builder.Services.AddCors(options =>
 {

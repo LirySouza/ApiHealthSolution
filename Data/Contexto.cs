@@ -18,6 +18,7 @@ namespace Api.Data
         public DbSet<ProfissionalModel> Profissional { get; set; }
         public DbSet<ConsultaModel> Consulta { get; set; }
         public DbSet<FormaPagamentoModel> FormaPagamento { get; set; }
+        public DbSet<TipoConsultaModel> TipoConsulta { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsuarioMap());
@@ -28,6 +29,7 @@ namespace Api.Data
             modelBuilder.ApplyConfiguration(new ProfissionalMap());
             modelBuilder.ApplyConfiguration(new ConsultaMap());
             modelBuilder.ApplyConfiguration(new FormaPagamentoMap());
+            modelBuilder.ApplyConfiguration(new TipoConsultaMap());
             base.OnModelCreating(modelBuilder);
         }
 
