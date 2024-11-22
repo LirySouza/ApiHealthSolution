@@ -41,7 +41,7 @@ namespace Api.Repositorios
             else
             {
                 paciente.NomePaciente = requisicao.NomePaciente;
-                paciente.DataNascimento = requisicao.DataNascimento;
+                paciente.DataNascimentoPaciente = requisicao.DataNascimentoPaciente;
                 paciente.TipoSexoId = requisicao.TipoSexoId;
                 paciente.CpfPaciente = requisicao.CpfPaciente;
                 paciente.EnderecoPaciente = requisicao.EnderecoPaciente;

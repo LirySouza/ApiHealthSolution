@@ -41,7 +41,7 @@ namespace Api.Repositorios
             else
             {
                 profissional.NomeProfissional = requisicao.NomeProfissional;
-                profissional.DataNascimento = requisicao.DataNascimento;
+                profissional.DataNascimentoProfissional = requisicao.DataNascimentoProfissional;
                 profissional.TipoSexoId = requisicao.TipoSexoId;
                 profissional.CpfProfissional = requisicao.CpfProfissional;
                 profissional.EnderecoProfissional = requisicao.EnderecoProfissional;

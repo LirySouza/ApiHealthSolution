@@ -10,7 +10,7 @@ namespace Api.Data
         {
             builder.HasKey(x => x.PacienteId);
             builder.Property(x => x.NomePaciente).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.DataNascimento).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.DataNascimentoPaciente).IsRequired().HasMaxLength(255);
             builder.Property(x => x.TipoSexoId).IsRequired();
             builder.Property(x => x.CpfPaciente).IsRequired();
             builder.Property(x => x.EnderecoPaciente).IsRequired().HasMaxLength(300);
