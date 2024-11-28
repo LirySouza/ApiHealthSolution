@@ -4,7 +4,7 @@
     {
         public int PagamentoId { get; set; }
 
-        public int ConsultaId { get; set; }
+        public int TipoConsultaId { get; set; }
 
         public int FormaPagamentoId { get; set; }
 

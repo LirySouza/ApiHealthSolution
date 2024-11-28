@@ -41,7 +41,7 @@ namespace Api.Repositorios
             }
             else
             {
-                pagamento.ConsultaId = requisicao.ConsultaId;
+                pagamento.TipoConsultaId = requisicao.TipoConsultaId;
                 pagamento.FormaPagamentoId = requisicao.FormaPagamentoId;
                 pagamento.ValorPagamento = requisicao.ValorPagamento;
                 pagamento.DataPagamento = requisicao.DataPagamento;
